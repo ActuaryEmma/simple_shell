@@ -71,13 +71,22 @@ void handle_exit(int sig)
 
 }
 
-int main(void)
+int main(int argc, char *argv[])
 {
 	signal(SIGINT, handle_exit);
 	char *buff = NULL;
 	size_t *n;
-	_getline(&buff, n, stdin);
-	free(buff);
+
+	if (argc > 1)
+	{
+		exit(1);
+	}
+	else
+	{
+		_getline(&buff, n, stdin);
+		free(buff);
+	}
+
 	return (0);
 }
 

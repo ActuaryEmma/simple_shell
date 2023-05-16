@@ -5,7 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+char *_getline();
+void _fork(char *buff);
 void handle_exit(int sig);
 
 #endif

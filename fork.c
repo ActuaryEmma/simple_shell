@@ -5,35 +5,17 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <signal.h>
-
-void _getline()
+#include "shell.h"
+void _fork(char *buff)
 {
 	/* child process ID */
-	pid_t pid;
-	/*buff store user input */
-	char *buff = NULL;
-
-	size_t n = 0;
+	pid_t pid;;
 
 	/* command to be executed by the child process */
 	char *argv[] = {"/bin/ls", NULL};
 
 	/* loop continous until the user enters exit command */
-	while (1)
-	{
-		/* prompt displayed to the user */
-		printf("#cisfun$ ");
-		/**
-		  * buff store the address of the buffer
-		  * stdin : read a line of text from the standard input (keyboard) and store it in the buffer buff.
-		  */
-
-		getline(&buff, &n, stdin);
-
-		/* remove the newline at the end line and replaces it with \0*/
-		buff[strcspn(buff, "\n")] = '\0';
-		/* if input is /bin/ls,, a child process is created  and execute the command specified in argv using execve system call */
-		if (strcmp(buff, "/bin/ls") == 0)
+	if (strcmp(buff, "/bin/ls") == 0)
 		{
 			pid = fork();
 
@@ -60,5 +42,4 @@ void _getline()
 		{
 			printf("./shell: No such filr or directory\n");
 		}
-	}
 }
