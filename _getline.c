@@ -6,6 +6,11 @@
 #include <sys/wait.h>
 #include <signal.h>
 #include "shell.h"
+/**
+  * _getline - display a prompt that a user input
+  * getline - read a line of input from the user and store it in the buff
+  * Return: buff on success
+  */
 char *_getline()
 {
 	ssize_t buffer;
@@ -13,27 +18,22 @@ char *_getline()
 	char *buff = NULL;
 
 	size_t n = 0;
-	/*loop continous until the user enters exit command */
-	while (1)
+
+	/* prompt displayed to the user */
+	printf("#cisfun$ ");
+	/**
+	 * buff store the address of the buffer
+	 * stdin : read a line of text from the standard input (keyboard) \
+	 and store it in the buffer buff.
+	 */
+	buffer = getline(&buff, &n, stdin);
+	/* check for error */
+	if (buffer == -1)
 	{
-		/* prompt displayed to the user */
-		printf("#cisfun$ ");
-		/**
-		  * buff store the address of the buffer
-		  * stdin : read a line of text from the standard input (keyboard) and store it in the buffer buff.
-		  */
-
-		buffer = getline(&buff, &n, stdin);
-
-		if (buffer == -1)
-		{
-			free(buff);
-			exit(1);
-		}
-
-		/* remove the newline at the end line and replaces it with \0*/
-		buff[strcspn(buff, "\n")] = '\0';
+		free(buff);
+		exit(1);
 	}
+	/* remove the newline at the end line and replaces it with \0*/
+	buff[strcspn(buff, "\n")] = '\0';
 	return (buff);
 }
-
