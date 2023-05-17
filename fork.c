@@ -14,40 +14,43 @@ void _fork(char *buff)
 {
 	/* child process ID */
 	pid_t pid;
+	char *args[1024];
+	int i = 0;
+	char *delim = " ";
+	char *token;
 
-	/* command to be executed by the child process */
-	char *argv[] = {"/bin/ls", NULL};
+	/* strtok split buff into tokens separated by spaces */
+	token = strtok(buff, delim);
 
-	/* strcmp compare if input by user is equal to /bin/ls */
-	if (strcmp(buff, "/bin/ls") == 0)
+	while (token != NULL)
 	{
-		/*create a new child process */
-		pid = fork();
+		args[i++] = token;
+		/* update to next token */
+		token = strtok(NULL, delim);
+	}
+	args[i] = NULL;
 
-		/*checks for error */
-		if (pid == -1)
+	/*create a new child process */
+	pid = fork();
+
+	/*checks for error */
+	if (pid == -1)
+	{
+		perror("error\n");
+		exit(1);
+	}
+	else if (pid == 0)
+	{
+		/* on success execve does not return */
+		if (execvp(args[0], args) == -1)
 		{
-			perror("error\n");
+			perror("./shell");
 			exit(1);
-		}
-		else if (pid == 0)
-		{
-			/* on success execve does not return */
-			if (execve(argv[0], argv, NULL) == -1)
-			{
-				perror("Error:");
-				exit(1);
-			}
-		}
-		else
-		{
-			/* parent process is executed after cild terminates*/
-			wait(NULL);
 		}
 	}
 	else
 	{
-		/* if a command is not recognized or does not exist */
-		printf("./shell: No such filr or directory\n");
+		/* parent process is executed after cild terminates*/
+		wait(NULL);
 	}
 }
