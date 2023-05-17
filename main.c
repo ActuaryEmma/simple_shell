@@ -15,11 +15,11 @@ int main(void)
 	/* invoke handle_exit function when Ctrl + c is received */
 	signal(SIGINT, handle_exit);
 	/* store user input */
-	char *buff;
 
 	/* loop runs until loop breaks */
 	while (1)
 	{
+		char *buff;
 
 		buff = _getline();
 
