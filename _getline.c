@@ -20,7 +20,11 @@ char *_getline()
 	size_t n = 0;
 
 	/* prompt displayed to the user */
-	printf("#cisfun$ ");
+	/* printf("#cisfun$ ");*/
+	if (isatty(STDIN_FILENO))
+	{
+		printf("#cisfun$ ");
+	}
 	/**
 	 * buff store the address of the buffer
 	 * stdin : read a line of text from the standard input (keyboard) \
