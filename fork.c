@@ -1,9 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include "shell.h"
 /**
   * _fork - create a child process takes no arguments
@@ -21,7 +15,6 @@ void _fork(char *buff)
 
 	/* strtok split buff into tokens separated by spaces */
 	token = strtok(buff, delim);
-
 	while (token != NULL)
 	{
 		args[i++] = token;
@@ -29,11 +22,8 @@ void _fork(char *buff)
 		token = strtok(NULL, delim);
 	}
 	args[i] = NULL;
-
 	/*create a new child process */
 	pid = fork();
-
-	/*checks for error */
 	if (pid == -1)
 	{
 		perror("error\n");
