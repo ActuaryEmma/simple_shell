@@ -1,10 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <signal.h>
 #include "shell.h"
 /**
   * _getline - display a prompt that a user input
@@ -41,9 +34,9 @@ char *_getline()
 		exit(1);
 	}
 	/* remove the newline at the end line and replaces it with \0*/
-	buff[strcspn(buff, "\n")] = '\0';
+	buff[_strcspn(buff, "\n")] = '\0';
 
-	if (strcmp(buff, "exit") == 0)
+	if (_strcmp(buff, "exit") == 0)
 	{
 		/* release the memory */
 		free(buff);
