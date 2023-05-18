@@ -12,6 +12,7 @@
   */
 int main(void)
 {
+	char *newline;
 	/* invoke handle_exit function when Ctrl + c is received */
 	signal(SIGINT, handle_exit);
 	/* store user input */
@@ -25,7 +26,8 @@ int main(void)
 
 		if (buff == NULL)
 		{
-			printf("\n");
+			newline = "\n";
+			write(STDOUT_FILENO, newline, _strlen(newline));
 			break;
 		}
 		_fork(buff);

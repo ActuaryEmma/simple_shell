@@ -14,6 +14,8 @@
 char *_getline()
 {
 	ssize_t buffer;
+
+	char *commandPrompt;
 	/*buff store user input */
 	char *buff = NULL;
 
@@ -23,7 +25,8 @@ char *_getline()
 	/* printf("#cisfun$ ");*/
 	if (isatty(STDIN_FILENO))
 	{
-		printf("#cisfun$ ");
+		commandPrompt = "#cisfun$ ";
+		write(STDOUT_FILENO, commandPrompt, _strlen(commandPrompt));
 	}
 	/**
 	 * buff store the address of the buffer

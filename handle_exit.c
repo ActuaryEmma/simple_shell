@@ -6,9 +6,13 @@
   */
 void handle_exit(int sig)
 {
+	char *newline;
+
 	(void)sig;
 	/* print a new line for formatting when you ctrl + C */
-	printf("\n");
+
+	newline = "\n";
+	write(STDOUT_FILENO, newline, _strlen(newline));
 	/* terminate the program */
 	exit(0);
 

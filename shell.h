@@ -11,5 +11,5 @@
 char *_getline();
 void _fork(char *buff);
 void handle_exit(int sig);
-
+size_t _strlen(char *s);
 #endif
