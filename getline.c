@@ -18,7 +18,7 @@ char *_getline()
 	/* printf("#cisfun$ ");*/
 	if (isatty(STDIN_FILENO))
 	{
-		commandPrompt = "#cisfun$ ";
+		commandPrompt = "$ ";
 		write(STDOUT_FILENO, commandPrompt, _strlen(commandPrompt));
 	}
 	/**

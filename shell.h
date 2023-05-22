@@ -8,10 +8,13 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+extern char **environ;
 char *_getline();
 void _fork(char *buff);
 void handle_exit(int sig);
 size_t _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 size_t _strcspn(char *str, char *reject);
+char *_getline_a();
+void print_env();
 #endif

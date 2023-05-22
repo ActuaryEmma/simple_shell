@@ -30,7 +30,14 @@ int main(void)
 			write(STDOUT_FILENO, newline, _strlen(newline));
 			break;
 		}
-		_fork(buff);
+		if (_strcmp(buff, "env") == 0)
+		{
+			print_env();
+		}
+		else
+		{
+			_fork(buff);
+		}
 		free(buff);
 	}
 	return (0);
