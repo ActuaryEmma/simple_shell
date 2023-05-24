@@ -125,3 +125,8 @@ Simple shell 1.0 +
 	Handle variables replacement
 	Handle the $? variable
 	Handle the $$ variable
+
+TASK 15:
+Simple shell 1.0 +
+
+	Handle comments (#)
