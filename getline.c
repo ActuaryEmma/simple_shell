@@ -36,8 +36,5 @@ char *_getline()
 	}
 	/* remove the newline at the end line and replaces it with \0*/
 	buff[_strcspn(buff, "\n")] = '\0';
-
-	
-
 	return (buff);
 }
