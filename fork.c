@@ -26,15 +26,15 @@ void _fork(char *buff)
 	pid = fork();
 	if (pid == -1)
 	{
-		perror("error\n");
+		perror("./hsh");
 		exit(1);
 	}
 	else if (pid == 0)
 	{
 		/* on success execve does not return */
-		if (execvp(args[0], args) == -1)
+		if (execve(args[0], args, environ) == -1)
 		{
-			perror("./shell");
+			perror("./hsh");
 			exit(1);
 		}
 	}
