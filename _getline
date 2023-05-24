@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "shell.h"
+char *_getline_a() {
+
+    char* line = NULL;
+    size_t bufsize = 0;
+    ssize_t read;
+
+    /* Read characters one by one until a newline or end-of-file is encountered*/
+    int c;
+    int i = 0;
+    while ((c = getchar()) != '\n' && c != EOF) {
+        /* Reallocate memory for each character*/
+        if (i == bufsize - 1) {
+            bufsize += 64;
+            line = realloc(line, bufsize);
+            if (line == NULL) {
+                perror("realloc");
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        /* Store the character in the line*/
+        line[i++] = c;
+    }
+
+    /* Add a null terminator to the lineI*/
+    line[i] = '\0';
+
+    /*Check for end-of-file*/
+    if (c == EOF && i == 0) {
+        free(line);
+        return NULL;
+    }
+
+    return line;
+}
+
