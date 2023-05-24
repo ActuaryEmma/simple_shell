@@ -109,3 +109,12 @@ TASK 12:
 Simple shell 1.0 +
 
 	Handle the && and || shell logical operators
+
+TASK 13:
+imple shell 1.0 +
+
+	Implement the alias builtin command
+	Usage: alias [name[='value'] ...]
+		alias: Prints a list of all aliases, one per line, in the form name='value'
+		alias name [name2 ...]: Prints the aliases name, name2, etc 1 per line, in the form name='value'
+		alias name='value' [...]: Defines an alias for each name whose value is given. If name is already an alias, replaces its value with value
