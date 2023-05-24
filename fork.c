@@ -32,7 +32,7 @@ void _fork(char *buff)
 	else if (pid == 0)
 	{
 		/* on success execve does not return */
-		if (execve(args[0], args, environ) == -1)
+		if (execvp(args[0], args) == -1)
 		{
 			perror("./hsh");
 			exit(0);
