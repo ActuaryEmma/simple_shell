@@ -34,7 +34,7 @@ void _fork(char *buff)
 		/* on success execve does not return */
 		if (execve(args[0], args, environ) == -1)
 		{
-			perror("Error: ");
+			perror("./hsh");
 			exit(1);
 		}
 	}
