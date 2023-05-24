@@ -34,6 +34,13 @@ int main(void)
 		{
 			print_env();
 		}
+		else if (_strcmp(buff, "exit") == 0)
+		{
+			/* release the memory */
+			free(buff);
+			/*break the loop */
+			exit(0);
+		}
 		else
 		{
 			_fork(buff);
