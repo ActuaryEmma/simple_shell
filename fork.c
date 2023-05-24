@@ -27,7 +27,7 @@ void _fork(char *buff)
 	if (pid == -1)
 	{
 		perror("./hsh");
-		exit(1);
+		exit(0);
 	}
 	else if (pid == 0)
 	{
@@ -35,7 +35,7 @@ void _fork(char *buff)
 		if (execve(args[0], args, environ) == -1)
 		{
 			perror("./hsh");
-			exit(1);
+			exit(0);
 		}
 	}
 	else

@@ -32,7 +32,7 @@ char *_getline()
 	if (buffer == -1)
 	{
 		free(buff);
-		exit(1);
+		exit(0);
 	}
 	/* remove the newline at the end line and replaces it with \0*/
 	buff[_strcspn(buff, "\n")] = '\0';
