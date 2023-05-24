@@ -68,3 +68,9 @@ TASK 7:
 Simple shell 0.2 +
 
 	You are not allowed to use strtok
+
+TASK 8:
+Simple shell 0.4 +
+
+	handle arguments for the built-in exit
+	Usage: exit status, where status is an integer used to exit the shell
