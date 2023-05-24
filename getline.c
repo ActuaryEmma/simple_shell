@@ -20,6 +20,7 @@ char *_getline()
 	{
 		commandPrompt = "$ ";
 		write(STDOUT_FILENO, commandPrompt, _strlen(commandPrompt));
+		fflush(stdout);
 	}
 	/**
 	 * buff store the address of the buffer
