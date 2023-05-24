@@ -34,7 +34,7 @@ int main(void)
 		{
 			print_env();
 		}
-		else if (_strcmp(buff, "exit") == 0)
+		else if (strcmp(buff, "exit") == 0)
 		{
 			/* release the memory */
 			free(buff);
