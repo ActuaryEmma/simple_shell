@@ -64,3 +64,7 @@ Simple shell 0.1 +
 You dont have to:
 	be able to move the cursor
 
+TASK 7:
+Simple shell 0.2 +
+
+	You are not allowed to use strtok
