@@ -1,7 +1,7 @@
 Simple Shell Project
 
 TASK 1:
-Write a UNIX command line interpreter.
+UNIX command line interpreter.
 
     Usage: simple_shell
 
