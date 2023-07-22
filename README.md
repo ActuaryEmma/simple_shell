@@ -1,8 +1,5 @@
 Simple Shell Project
 
-TASK 0:
-Write a beautiful code that passes the Betty checks
-
 TASK 1:
 Write a UNIX command line interpreter.
 
